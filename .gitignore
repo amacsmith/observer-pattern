@@ -22,3 +22,4 @@ Homestead.json
 
 # Coverage
 /build
+coverage.xml
