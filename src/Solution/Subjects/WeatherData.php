@@ -8,6 +8,11 @@ use AMacSmith\ObserverPattern\Solution\Subject;
 class WeatherData implements Subject
 {
     /**
+     * @var array Observer
+     */
+    private array $observers = [];
+
+    /**
      * WeatherData constructor.
      * @param float $temperature
      * @param float $humidity
@@ -17,11 +22,6 @@ class WeatherData implements Subject
                                 private float $humidity,
                                 private float $pressure)
     {}
-
-    /**
-     * @var array Observer
-     */
-    private array $observers = [];
 
     public function register(Observer $observer): void
     {
@@ -88,5 +88,13 @@ class WeatherData implements Subject
     public function getPressure(): float
     {
         return $this->pressure;
+    }
+
+    /**
+     * @return array
+     */
+    public function getObservers(): array
+    {
+        return $this->observers;
     }
 }

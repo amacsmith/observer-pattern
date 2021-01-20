@@ -1,6 +1,6 @@
 <?php
 
-namespace AMacsmith\ObserverPattern\Tests;
+namespace AMacSmith\ObserverPattern\Tests;
 
 use AMacSmith\ObserverPattern\Solution\Observers\Displays\CurrentCondition;
 use AMacSmith\ObserverPattern\Solution\Observers\Displays\DisplayTypes;
@@ -49,6 +49,8 @@ class WeatherDataTest extends TestCase
 
     public function test_simulate_weather_data()
     {
+        $this->assertCount(3, $this->weatherData->getObservers());
+
         $this->weatherData->setMeasurements(50, 50, 50);
         echo PHP_EOL;
         $this->assertEquals(50, $this->currentConditions->getTemperature());
@@ -83,6 +85,13 @@ class WeatherDataTest extends TestCase
         $this->assertEquals(50, $this->statistics->getAverageHumidity());
         $this->assertEquals(50, $this->statistics->getAveragePressure());
 
+        $this->weatherData->unregister($this->currentConditions);
+        $this->assertCount(2, $this->weatherData->getObservers());
 
+        $this->weatherData->unregister($this->forecast);
+        $this->assertCount(1, $this->weatherData->getObservers());
+
+        $this->weatherData->unregister($this->statistics);
+        $this->assertCount(0, $this->weatherData->getObservers());
     }
 }
