@@ -1,5 +1,5 @@
 <?php
-
+// @codeCoverageIgnoreStart
 
 namespace AMacSmith\ObserverPattern\Problem;
 
