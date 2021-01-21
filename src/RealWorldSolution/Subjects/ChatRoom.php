@@ -47,7 +47,7 @@ class ChatRoom implements Subject
      * @param Observer|Chatter $observer
      * @return Subject
      */
-    public function unregister(Observer|Chatter $observer): Subject
+    public function unregister($observer): Subject
     {
         if(($key = array_search($observer, $this->users,true)) !== FALSE) {
             unset($this->users[$key]);
