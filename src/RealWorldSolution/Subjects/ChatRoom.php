@@ -19,7 +19,7 @@ class ChatRoom implements Subject
      * ChatRoom constructor.
      * @param string $name
      */
-    #[Pure] public function __construct(string $name){
+    public function __construct(string $name){
         $this->name = $name;
         $this->history = new MessageHistory();
     }

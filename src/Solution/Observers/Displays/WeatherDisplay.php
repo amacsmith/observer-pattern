@@ -23,7 +23,7 @@ class WeatherDisplay
      * @return CurrentCondition|Forecast|Statistic
      * @throws Exception
      */
-    public function make(string $displayType, WeatherData $weatherData): Statistic|Forecast|CurrentCondition
+    public function make(string $displayType, WeatherData $weatherData)
     {
         return match ($displayType) {
             DisplayTypes::CURRENTCONDITIONS => new CurrentCondition($weatherData),
