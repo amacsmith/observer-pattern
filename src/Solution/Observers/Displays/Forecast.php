@@ -28,7 +28,7 @@ class Forecast extends WeatherDisplay implements Observer, DisplayElement
     }
 
     /**
-     * Update weather forecast
+     * Update weather forecast.
      */
     public function update(): void
     {
@@ -39,7 +39,7 @@ class Forecast extends WeatherDisplay implements Observer, DisplayElement
     }
 
     /**
-     * Display weather forecast
+     * Display weather forecast.
      */
     public function display(): void
     {
