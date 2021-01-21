@@ -2,7 +2,6 @@
 
 namespace AMacSmith\ObserverPattern\RealWorldSolution\Observers;
 
-use AMacSmith\ObserverPattern\RealWorldSolution\Message;
 use AMacSmith\ObserverPattern\RealWorldSolution\Subjects\ChatRoom;
 
 interface Chatter

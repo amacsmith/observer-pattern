@@ -23,9 +23,9 @@ class Statistic extends WeatherDisplay implements Observer, DisplayElement
         $this->weatherData = $weatherData;
         $weatherData->register($this);
     }
-    
+
     /**
-     * Update weather statistics
+     * Update weather statistics.
      */
     public function update(): void
     {
@@ -33,14 +33,14 @@ class Statistic extends WeatherDisplay implements Observer, DisplayElement
         $this->humidities[] = $this->weatherData->getHumidity();
         $this->pressures[] = $this->weatherData->getPressure();
 
-        $this->averageTemperature = array_sum($this->temperatures)/count($this->temperatures);
-        $this->averageHumidity = array_sum($this->humidities)/count($this->humidities);
-        $this->averagePressure = array_sum($this->pressures)/count($this->pressures);
+        $this->averageTemperature = array_sum($this->temperatures) / count($this->temperatures);
+        $this->averageHumidity = array_sum($this->humidities) / count($this->humidities);
+        $this->averagePressure = array_sum($this->pressures) / count($this->pressures);
         $this->display();
     }
 
     /**
-     * display weather statistics
+     * display weather statistics.
      */
     public function display(): void
     {

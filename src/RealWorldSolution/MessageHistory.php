@@ -23,7 +23,7 @@ class MessageHistory
     }
 
     /**
-     * Display ChatRoom Messagehistory
+     * Display ChatRoom Messagehistory.
      */
     public function display(): void
     {

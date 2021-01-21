@@ -1,8 +1,8 @@
 <?php
+
 // @codeCoverageIgnoreStart
 
 namespace AMacSmith\ObserverPattern\Problem;
-
 
 interface DisplayContract
 {

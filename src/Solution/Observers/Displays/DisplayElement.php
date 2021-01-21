@@ -5,7 +5,7 @@ namespace AMacSmith\ObserverPattern\Solution\Observers\Displays;
 interface DisplayElement
 {
     /**
-     * Display state
+     * Display state.
      */
     public function display(): void;
 }

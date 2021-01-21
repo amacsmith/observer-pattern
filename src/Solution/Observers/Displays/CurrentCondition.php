@@ -25,7 +25,7 @@ class CurrentCondition extends WeatherDisplay implements Observer, DisplayElemen
     }
 
     /**
-     * Update current weather conditions
+     * Update current weather conditions.
      */
     public function update(): void
     {
@@ -36,7 +36,7 @@ class CurrentCondition extends WeatherDisplay implements Observer, DisplayElemen
     }
 
     /**
-     * Display current weather conditions
+     * Display current weather conditions.
      */
     public function display(): void
     {
