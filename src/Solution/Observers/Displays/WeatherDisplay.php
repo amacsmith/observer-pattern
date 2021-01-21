@@ -13,7 +13,8 @@ class WeatherDisplay
      * WeatherDisplayFactory constructor.
      * @param WeatherData $weatherData
      */
-    public function __construct(WeatherData $weatherData){
+    public function __construct(WeatherData $weatherData)
+    {
         $this->weatherData = $weatherData;
     }
 
@@ -36,7 +37,7 @@ class WeatherDisplay
                 return new Statistic($weatherData);
                 break;
             default:
-                throw new Exception('Invalid display type given ' . $displayType);
+                throw new Exception('Invalid display type given '.$displayType);
         }
     }
 }

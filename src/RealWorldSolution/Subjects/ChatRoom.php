@@ -7,7 +7,6 @@ use AMacSmith\ObserverPattern\RealWorldSolution\MessageHistory;
 use AMacSmith\ObserverPattern\RealWorldSolution\Observer;
 use AMacSmith\ObserverPattern\RealWorldSolution\Observers\Chatter;
 use AMacSmith\ObserverPattern\RealWorldSolution\Subject;
-use JetBrains\PhpStorm\Pure;
 
 class ChatRoom implements Subject
 {
@@ -19,7 +18,8 @@ class ChatRoom implements Subject
      * ChatRoom constructor.
      * @param string $name
      */
-    public function __construct(string $name){
+    public function __construct(string $name)
+    {
         $this->name = $name;
         $this->history = new MessageHistory();
     }
@@ -32,6 +32,7 @@ class ChatRoom implements Subject
     {
         $this->users[] = $observer;
         $this->registerChatter($observer);
+
         return $this;
     }
 
@@ -49,15 +50,16 @@ class ChatRoom implements Subject
      */
     public function unregister($observer): Subject
     {
-        if(($key = array_search($observer, $this->users,true)) !== FALSE) {
+        if (($key = array_search($observer, $this->users, true)) !== false) {
             unset($this->users[$key]);
         }
+
         return $this;
     }
 
     public function notify(): void
     {
-        foreach($this->users as $user) {
+        foreach ($this->users as $user) {
             $user->update();
         }
     }

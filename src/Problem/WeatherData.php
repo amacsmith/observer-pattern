@@ -1,5 +1,7 @@
 <?php
+
 // @codeCoverageIgnoreStart
+
 namespace AMacSmith\ObserverPattern\Problem;
 
 class WeatherData
@@ -22,7 +24,7 @@ class WeatherData
         $this->statisticsDisplay = $statisticsDisplay;
         $this->currentConditionsDisplay = $currentConditionsDisplay;
     }
-    
+
     public function getTemperature()
     {
         return $this->temperature;

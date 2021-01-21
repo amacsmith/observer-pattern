@@ -1,8 +1,6 @@
 <?php
 
-
 namespace AMacSmith\ObserverPattern\RealWorldSolution;
-
 
 use Carbon\Carbon;
 

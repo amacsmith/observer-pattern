@@ -37,17 +37,17 @@ class WeatherData implements Subject
 
     public function unregister(Observer $observer): void
     {
-        if(($key = array_search($observer, $this->observers,true)) !== FALSE) {
+        if (($key = array_search($observer, $this->observers, true)) !== false) {
             unset($this->observers[$key]);
         }
     }
 
     /**
-     * Notify Observers of some change
+     * Notify Observers of some change.
      */
     public function notify(): void
     {
-        foreach($this->observers as $observer) {
+        foreach ($this->observers as $observer) {
             $observer->update();
         }
     }
@@ -66,7 +66,7 @@ class WeatherData implements Subject
     }
 
     /**
-     * Measurements have been changed and should now notify Observers
+     * Measurements have been changed and should now notify Observers.
      */
     private function measurementsChanged(): void
     {
