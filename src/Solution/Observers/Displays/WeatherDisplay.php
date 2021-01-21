@@ -25,11 +25,18 @@ class WeatherDisplay
      */
     public function make(string $displayType, WeatherData $weatherData)
     {
-        return match ($displayType) {
-            DisplayTypes::CURRENTCONDITIONS => new CurrentCondition($weatherData),
-            DisplayTypes::FORECAST => new Forecast($weatherData),
-            DisplayTypes::STATISTIC => new Statistic($weatherData),
-            default => throw new Exception('Invalid display type given ' . $displayType),
-        };
+        switch ($displayType) {
+            case DisplayTypes::CURRENTCONDITIONS:
+                return new CurrentCondition($weatherData);
+                break;
+            case DisplayTypes::FORECAST:
+                return new Forecast($weatherData);
+                break;
+            case DisplayTypes::STATISTIC:
+                return new Statistic($weatherData);
+                break;
+            default:
+                throw new Exception('Invalid display type given ' . $displayType);
+        }
     }
 }

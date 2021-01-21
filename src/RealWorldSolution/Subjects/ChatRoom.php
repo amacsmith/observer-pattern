@@ -28,7 +28,7 @@ class ChatRoom implements Subject
      * @param Chatter|Observer $observer
      * @return Subject
      */
-    public function register(Chatter|Observer $observer): Subject
+    public function register($observer): Subject
     {
         $this->users[] = $observer;
         $this->registerChatter($observer);
