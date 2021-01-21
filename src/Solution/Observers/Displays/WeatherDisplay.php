@@ -7,11 +7,15 @@ use Exception;
 
 class WeatherDisplay
 {
+    protected WeatherData $weatherData;
+
     /**
      * WeatherDisplayFactory constructor.
      * @param WeatherData $weatherData
      */
-    public function __construct(protected WeatherData $weatherData){}
+    public function __construct(WeatherData $weatherData){
+        $this->weatherData = $weatherData;
+    }
 
     /**
      * @param string $displayType

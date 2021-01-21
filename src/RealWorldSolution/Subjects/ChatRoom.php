@@ -13,12 +13,14 @@ class ChatRoom implements Subject
 {
     private array $users = [];
     private MessageHistory $history;
+    private string $name;
 
     /**
      * ChatRoom constructor.
      * @param string $name
      */
-    #[Pure] public function __construct(private string $name){
+    #[Pure] public function __construct(string $name){
+        $this->name = $name;
         $this->history = new MessageHistory();
     }
 

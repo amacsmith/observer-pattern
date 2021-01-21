@@ -10,12 +10,16 @@ class User implements Observer, Chatter
 {
 
     private ChatRoom $chatRoom;
+    private string $name;
+
     /**
      * User constructor
      * @param string $name
      */
-    public function __construct(private string $name)
-    {}
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
 
     /**
      * Update user when ChatRoom has a new Message
