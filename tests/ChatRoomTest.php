@@ -1,8 +1,6 @@
 <?php
 
-
 namespace AMacSmith\ObserverPattern\Tests;
-
 
 use AMacSmith\ObserverPattern\RealWorldSolution\Message;
 use AMacSmith\ObserverPattern\RealWorldSolution\Observers\Moderator;
@@ -46,7 +44,7 @@ class ChatRoomTest extends TestCase
             'Hey Bill!',
             'Hello Jerry.',
             'Howdy Ted.',
-            'Hi Jerry.'
+            'Hi Jerry.',
         ];
 
         $this->jerry->sendMessage($texts[0]);

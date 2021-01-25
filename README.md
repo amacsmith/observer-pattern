@@ -6,6 +6,7 @@ Implementation of the observer pattern given a problem. There is also some added
 
 [![codecov](https://codecov.io/gh/amacsmith/observer-pattern/branch/main/graph/badge.svg)](https://codecov.io/gh/amacsmith/observer-pattern)
 
+[![StyleCI](https://github.styleci.io/repos/331114984/shield?branch=main)](https://github.styleci.io/repos/331114984?branch=main)
 
 Usage
 

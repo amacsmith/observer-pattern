@@ -8,17 +8,20 @@ use AMacSmith\ObserverPattern\RealWorldSolution\Subjects\ChatRoom;
 
 class User implements Observer, Chatter
 {
-
     private ChatRoom $chatRoom;
+    private string $name;
+
     /**
-     * User constructor
+     * User constructor.
      * @param string $name
      */
-    public function __construct(private string $name)
-    {}
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
 
     /**
-     * Update user when ChatRoom has a new Message
+     * Update user when ChatRoom has a new Message.
      */
     public function update(): void
     {
@@ -26,7 +29,7 @@ class User implements Observer, Chatter
     }
 
     /**
-     * Display the last Message in the ChatRoom
+     * Display the last Message in the ChatRoom.
      */
     public function displayLastMessage(): void
     {
@@ -36,7 +39,7 @@ class User implements Observer, Chatter
     }
 
     /**
-     * Send a Message to a ChatRoom
+     * Send a Message to a ChatRoom.
      * @param string $text
      */
     public function sendMessage(string $text): void

@@ -11,6 +11,9 @@ class WeatherData implements Subject
      * @var array Observer
      */
     private array $observers = [];
+    private float $temperature;
+    private float $humidity;
+    private float $pressure;
 
     /**
      * WeatherData constructor.
@@ -18,10 +21,14 @@ class WeatherData implements Subject
      * @param float $humidity
      * @param float $pressure
      */
-    public function __construct(private float $temperature,
-                                private float $humidity,
-                                private float $pressure)
-    {}
+    public function __construct(float $temperature,
+                                float $humidity,
+                                float $pressure)
+    {
+        $this->pressure = $pressure;
+        $this->humidity = $humidity;
+        $this->temperature = $temperature;
+    }
 
     public function register(Observer $observer): void
     {
@@ -30,17 +37,17 @@ class WeatherData implements Subject
 
     public function unregister(Observer $observer): void
     {
-        if(($key = array_search($observer, $this->observers,true)) !== FALSE) {
+        if (($key = array_search($observer, $this->observers, true)) !== false) {
             unset($this->observers[$key]);
         }
     }
 
     /**
-     * Notify Observers of some change
+     * Notify Observers of some change.
      */
     public function notify(): void
     {
-        foreach($this->observers as $observer) {
+        foreach ($this->observers as $observer) {
             $observer->update();
         }
     }
@@ -59,7 +66,7 @@ class WeatherData implements Subject
     }
 
     /**
-     * Measurements have been changed and should now notify Observers
+     * Measurements have been changed and should now notify Observers.
      */
     private function measurementsChanged(): void
     {

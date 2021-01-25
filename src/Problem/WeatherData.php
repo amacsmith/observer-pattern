@@ -1,9 +1,14 @@
 <?php
+
 // @codeCoverageIgnoreStart
+
 namespace AMacSmith\ObserverPattern\Problem;
 
 class WeatherData
 {
+    public DisplayContract $currentConditionsDisplay;
+    public DisplayContract $statisticsDisplay;
+    public DisplayContract $forecastDisplay;
 
     /**
      * WeatherData constructor.
@@ -11,11 +16,15 @@ class WeatherData
      * @param DisplayContract $statisticsDisplay
      * @param DisplayContract $forecastDisplay
      */
-    public function __construct(public DisplayContract $currentConditionsDisplay,
-                                public DisplayContract $statisticsDisplay,
-                                public DisplayContract $forecastDisplay)
-    {}
-    
+    public function __construct(DisplayContract $currentConditionsDisplay,
+                                DisplayContract $statisticsDisplay,
+                                DisplayContract $forecastDisplay)
+    {
+        $this->forecastDisplay = $forecastDisplay;
+        $this->statisticsDisplay = $statisticsDisplay;
+        $this->currentConditionsDisplay = $currentConditionsDisplay;
+    }
+
     public function getTemperature()
     {
         return $this->temperature;
