@@ -34,9 +34,9 @@ class ChatRoom implements Subject
     }
 
     /**
-     * @param Chatter $chatter
+     * @param Chatter|Observer $chatter
      */
-    private function registerChatter(Chatter $chatter): void
+    private function registerChatter(Chatter|Observer $chatter): void
     {
         $chatter->setChatRoom($this);
     }

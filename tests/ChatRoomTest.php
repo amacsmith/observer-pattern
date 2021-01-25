@@ -5,8 +5,11 @@ namespace AMacSmith\ObserverPattern\Tests;
 
 
 use AMacSmith\ObserverPattern\RealWorldSolution\Message;
+use AMacSmith\ObserverPattern\RealWorldSolution\Observers\Moderator;
 use AMacSmith\ObserverPattern\RealWorldSolution\Observers\User;
+use AMacSmith\ObserverPattern\RealWorldSolution\Observers\Admin;
 use AMacSmith\ObserverPattern\RealWorldSolution\Subjects\ChatRoom;
+use PhpParser\Node\Expr\AssignOp\Mod;
 use PHPUnit\Framework\TestCase;
 
 class ChatRoomTest extends TestCase
@@ -19,6 +22,8 @@ class ChatRoomTest extends TestCase
     private User $jerry;
     private User $bill;
     private User $ted;
+    private Admin $admin;
+    private Moderator $moderator;
 
     protected function setUp(): void
     {
@@ -26,9 +31,13 @@ class ChatRoomTest extends TestCase
         $this->jerry = new User('Jerry');
         $this->bill = new User('Bill');
         $this->ted = new User('Ted');
-        $this->chatRoom->register($this->jerry)
+        $this->admin = new Admin('The Boss');
+        $this->moderator = new Moderator();
+        $this->chatRoom->register($this->moderator)
+                        ->register($this->jerry)
                         ->register($this->bill)
-                        ->register($this->ted);
+                        ->register($this->ted)
+                        ->register($this->admin);
     }
 
     public function test_can_send_and_receive_messages_in_our_chatroom()
@@ -44,6 +53,7 @@ class ChatRoomTest extends TestCase
         $this->bill->sendMessage($texts[1]);
         $this->jerry->sendMessage($texts[2]);
         $this->ted->sendMessage($texts[3]);
+        $this->admin->sendMessage('Get back to work!');
 
         echo PHP_EOL.PHP_EOL;
         echo "{$this->chatRoom->getName()}'s Message History:".PHP_EOL;
